@@ -126,10 +126,10 @@ Baby.prototype.play = function play() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. this targets what to the left of the dot
-  2. 
-  3. 
-  4. 
+  1. targets window when it's global
+  2. targets what's to the left of the dot when chained
+  3. in constructor functions refers to specific instances
+  4. when .call or . apply used this is already implied 
 */
 
 
