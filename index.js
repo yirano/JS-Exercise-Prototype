@@ -114,14 +114,18 @@ Car.prototype.drive = function(distance){
 function Baby(name, age, favoriteToy) {
 this.name = name;
 this.age = age;
+this.favoriteToy = favoriteToy;
+
 
 }
- Baby.prototype
+ Baby.prototype.play = function play() {
+   return `Playing with ${this.favoriteToy}`
+ }
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
+  1. this targets what to the left of the dot
   2. 
   3. 
   4. 
