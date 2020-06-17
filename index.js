@@ -123,10 +123,10 @@ console.log(cory.play())
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Default binding is the most common case of function calls. it calls the standalone function invocation.
+  2. implicit binding is when the object standing before the dot is what this keyword will be bound to
+  3. Explicit binding, you can force a function to use a particular object for 'this' binding without putting a property function on the object
+  4. New binding, an empty object is created and referenced by 'this' variable, inheriting the prototype of the function. Properties and methods added to the 'this' object. the newly created object referenced by 'this' is returned at the end.
 */
 
 
