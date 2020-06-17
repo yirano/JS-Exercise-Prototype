@@ -81,7 +81,7 @@ console.log(personOne.stomach);
 
 function Car(model, milesPerGallon) {
 this.model = model;
-this.mpg = milesPerGallon;
+this.milesPerGallon = milesPerGallon;
 this.tank = 0;
 this.odometer = 0;
 
@@ -93,7 +93,7 @@ const myCar = new Car('Subaru', 33);
 
 myCar.fill(13);
 console.log(myCar.tank);
-
+console.log(myCar)
 
 
 
