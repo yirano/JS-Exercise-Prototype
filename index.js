@@ -43,22 +43,23 @@ function Person(name, age) {
 this.name = name;
 this.age = age;
 this.stomach = [];
+ 
 }
 
 Person.prototype.eat = function(someFood){
-    for(let i = 0; i < this.stomach.length && i; i++)
-    {if( this.stomach[i] < 10){
+   if(this.stomach.length < 10){
       return this.stomach.push(someFood)};
+      
 };
-}
 
 Person.prototype.poop = function(){
   this.stomach = [];
-}
+};
 
-Person.prototype.tostring = function(){
-  return `${this.name}, ${this.age}`;
-}
+ Person.prototype.toString = function(){
+  return `"${this.name}, ${this.age}"`;
+};
+
 
 /*
   TASK 2
@@ -85,17 +86,17 @@ Car.prototype.fill = function(gallons){
 this.tank += gallons;
 }
 
-let distance = 0;
-Car.prototype.drive = function(distance){
-  distance =  this.milesPerGallon * this.tank
-  for( let i = 0; i < this.tank; i++)
-  if( this.tank > 0){
-    return this.tank - 1, this.odometer + this.milesPerGallon
-  }
-  else{
-    return`I ran out of fuel at ${this.odometer} miles!`;
-  };
-}
+// let distance = 0;
+// Car.prototype.drive = function(distance){
+//   distance =  this.milesPerGallon * this.tank
+//   for( let i = 0; i < this.tank; i++)
+//   if( this.tank > 0){
+//     return this.tank - 1 && (this.odometer + this.milesPerGallon)
+//   }
+//   else{
+//     return`I ran out of fuel at ${this.odometer} miles!`;
+//   };
+// }
 
 /*
   TASK 3
@@ -104,13 +105,16 @@ Car.prototype.drive = function(distance){
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby(attr) {
-Person.call(this, attr);
-this.favoriteToy = attr.favoriteToy
+function Baby(name, age, favoriteToy) {
+this.name = name;
+this.age = age;
+this.favoriteToy = favoriteToy;
+
 }
+ Baby.prototype = Object.create(Person.prototype);
 
 Baby.prototype.play = function(){
-  return `Playing with ${this.favoriteToy}.`
+  return `Playing with ${this.favoriteToy}.`;
 }
 /* 
   TASK 4
