@@ -38,11 +38,37 @@ Airplane.prototype.land = function () {
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
+/*
+function Person(name, age) {
+this.name = name,
+this.age = age
+this.stomach = [];
+}
+Person.prototype.eat = function(edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
+  }
+}
+ Person.prototype.stomach
 
-function Person() {
-
+ Person.prototype.poop = function(){
+  this.stomach = [];
 }
 
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`;
+}
+const personOne = new Person('Ashton', 34);
+
+
+//console.log(personOne.toString());
+//personOne.eat('tacos');
+//personOne.eat('fried chicken');
+//personOne.eat('sashimi');
+//console.log(personOne.stomach);
+//personOne.poop();
+//console.log(personOne.stomach);
+*/
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -57,9 +83,26 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+this.tank = 0;
+this.odometer = 0;
+this.car = name;
+this.milesPerGallon = milesPerGallon;
+this.model = model;
 }
+
+Car.prototype.fill = function(gallons){
+return this.tank = gallons;
+};
+
+Car.prototype.drive = function(distance){
+ this.odometer += distance
+ this.tank = this.tank - distance/this.milesPerGallon; //need to implement miles per gallon
+  if (this.tank === 0){
+    return `I ran out of fuel at ${this.odometer} miles!`
+  };
+  };
+console.log(Car("Tesla", 20));
 
 /*
   TASK 3
@@ -86,10 +129,11 @@ function Baby() {
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
+/*if (typeof exports !== 'undefined') {
   module.exports = module.exports || {}
   if (Airplane) { module.exports.Airplane = Airplane }
   if (Person) { module.exports.Person = Person }
   if (Car) { module.exports.Car = Car }
   if (Baby) { module.exports.Baby = Baby }
 }
+*/
