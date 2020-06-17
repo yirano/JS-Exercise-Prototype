@@ -38,10 +38,41 @@ Airplane.prototype.land = function () {
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
-
-function Person() {
-
+// creating a constructor function
+// it take 3 properties name, age and stomach which is an empty array
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+
+// create an eat method taht gives the person the ability to eat something edible - it has a param of something that we can pass food into
+// if the stomach length is < 10 the person can eat
+// we want to push the argument of something edible to the array(stomach)
+Person.prototype.eat = function(edible){
+  if(this.stomach.length < 10){
+    this.stomach.push(edible);
+    }
+}
+
+// we need to create a poop method hehe
+Person.prototype.poop = function(){
+  this.stomach = [];
+}
+// method called toString - needs to return a string with name and age
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`
+}
+// create my object
+
+const personOne = new Person('Jorge', 19)
+console.log(personOne.toString())
+personOne.eat('Tacos')
+personOne.eat('French Fries')
+console.log(personOne.stomach);
+personOne.poop();
+console.log(personOne.stomach);
 
 /*
   TASK 2
@@ -57,9 +88,12 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = [];
 }
+
 
 /*
   TASK 3
@@ -68,10 +102,14 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(baby, toy) {
+  this.baby = baby;
+  this.toy = toy;
 }
-
+Baby.prototype.play = function(){
+  console.log(`Playing with ${this.baby}, ${this.toy} being the favorite toy.`)
+}
+console.log(Person.call(Baby))
 /* 
   TASK 4
 
