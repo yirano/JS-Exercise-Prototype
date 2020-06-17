@@ -38,7 +38,7 @@ Airplane.prototype.land = function () {
     - Give instances of Person a method `.toString()`:
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
-/*
+
 function Person(name, age) {
 this.name = name,
 this.age = age
@@ -68,7 +68,7 @@ const personOne = new Person('Ashton', 34);
 //console.log(personOne.stomach);
 //personOne.poop();
 //console.log(personOne.stomach);
-*/
+
 /*
   TASK 2
     - Write a Car constructor that initializes `model` and `milesPerGallon` from arguments.
@@ -112,15 +112,16 @@ Car.prototype.drive = function(distance){
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name, age, favoriteToy) {
-this.name = name;
-this.age = age;
-this.favoriteToy = favoriteToy;
-
-
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
 }
- Baby.prototype.play = function play() {
+Baby.prototype = Object.create(Person.prototype)
+ 
+Baby.prototype.play = function play() {
    return `Playing with ${this.favoriteToy}`
  }
+
+
 /* 
   TASK 4
 
