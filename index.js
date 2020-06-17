@@ -87,13 +87,16 @@ console.log(personOne.stomach);
     - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
-
+//
 function Car(model, milesPerGallon) {
   this.model = model;
   this.milesPerGallon = milesPerGallon;
-  this.tank = [];
+  this.tank = 0;
+  this.odometer = 0;
 }
-
+Car.prototype.fill = function(gallons){
+  this.tank += gallons;
+}
 
 /*
   TASK 3
@@ -102,22 +105,40 @@ function Car(model, milesPerGallon) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby(baby, toy) {
-  this.baby = baby;
-  this.toy = toy;
+function Baby(name, age, favoriteToy) {
+Person.call(this, name, age)
+  this.favoriteToy = favoriteToy
 }
+Baby.prototype = Object.create(Person.prototype)
+// Baby.prototype.eat = function(edible){
+//   if(this.stomach.length < 10){
+//     this.stomach.push(edible);
+//     }
+// }
+
+// // we need to create a poop method hehe
+// Baby.prototype.poop = function(){
+//   this.stomach = [];
+// }
+// // method called toString - needs to return a string with name and age
+
+// Baby.prototype.toString = function(){
+//   return `${this.name}, ${this.age}`
+// }
 Baby.prototype.play = function(){
-  console.log(`Playing with ${this.baby}, ${this.toy} being the favorite toy.`)
+  return `Playing with ${this.favoriteToy}`
 }
-console.log(Person.call(Baby))
+
+const firstBaby = new Baby("Ooga", 69, "Limited edition, 1980 American Girl Doll")
+
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. window/global - the value "this" will be the window/console object
+  2. implicit - the object before dot is the "this"
+  3. New binding - this is set to a specific instance of the object
+  4. Explicit - the "this" is explicitly defined
 */
 
 
