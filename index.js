@@ -84,15 +84,26 @@ this.model = model;
 this.milesPerGallon = milesPerGallon;
 this.tank = 0;
 this.odometer = 0;
-
+ 
 }
 Car.prototype.fill = function(gallons){
   return this.tank += gallons
-};
+}
+Car.prototype.drive = function(distance){
+  const drivableMiles = this.tank * this.milesPerGallon;
+  if (distance <= drivableMiles) {
+    this.odometer = this.odometer + distance;
+    this.tank = this.tank - (distance / this.milesPerGallon)
+  } else {
+    this.odometer = this.odometer + drivableMiles;
+    this.tank = 0;
+    return `I ran out of fuel at ${this.odometer} miles!`
+}
+}
 const myCar = new Car('Subaru', 33);
 
 myCar.fill(13);
-console.log(myCar.tank);
+console.log(myCar.tank); 
 console.log(myCar)
 
 
@@ -118,7 +129,7 @@ Baby.prototype.play = function(){
 cory.play()
 console.log(cory.play())
 
-
+ 
 /* 
   TASK 4
 
